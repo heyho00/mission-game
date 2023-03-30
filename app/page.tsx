@@ -26,7 +26,7 @@ export default function Home() {
           },
           body: JSON.stringify({
             prompt,
-            max_tokens: 100,
+            max_tokens: 10,
             temperature: 0.7,
             n: 1,
             stop: ["\n"],
@@ -35,6 +35,7 @@ export default function Home() {
       );
       const data = await response.json();
       setMission(data.choices[0].text.trim());
+      console.log(data, "data");
       toast.success(`🚀 ${country} 미션 추천 완료!`);
     } catch (error) {
       console.error(error);
